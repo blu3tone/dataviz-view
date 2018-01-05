@@ -1,0 +1,156 @@
+.product-view-image{
+    width: 100%;
+}
+.product-view-block{
+    margin-top: 130px;
+}
+#colorWheel {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform-origin: 50px 150px;
+    -moz-transform-origin: 50px 150px;
+    -ms-transform-origin: 50px 150px;
+    -o-transform-origin: 50px 150px;
+    transform-origin: 50px 150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+#colorWheel > span:hover {
+    border-color: yellow transparent transparent transparent;
+}
+#colorWheel > div {
+    position: absolute;
+    z-index: 100;
+    top: 74px;
+    left: -16px;
+    text-align: center;
+}
+#colorWheel > span {
+    position: absolute;
+    border-style: solid;
+    border-width: 47px 40px;
+    box-sizing: border-box;
+    border-color: #43a1cd transparent transparent transparent;
+    transform-origin: bottom;
+    cursor: pointer;
+}
+#colorWheel > span.selected {
+    border-color: lawngreen transparent transparent transparent;
+}
+#colorWheel > span > span{
+    margin-top: -42px;
+    margin-left: -10px;
+    text-align: center;
+    color: black;
+    position: inherit;
+    font-weight: bold;
+}
+
+#colorWheel span.n {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    z-index: 11;
+}
+
+#colorWheel span.ne {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 12;
+}
+
+#colorWheel span.e {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    z-index: 13;
+}
+
+#colorWheel span.se {
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    z-index: 14;
+}
+
+#colorWheel span.s {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    z-index: 15;
+}
+
+#colorWheel span.sw {
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+    z-index: 16;
+}
+
+#colorWheel span.w {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+    z-index: 17;
+}
+
+#colorWheel span.nw {
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -ms-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    transform: rotate(315deg);
+    z-index: 18;
+}
+
+#colorWheel:before {
+    content: "";
+    width: 230px;
+    height: 230px;
+    overflow: hidden;
+    position: absolute;
+    top: -20px;
+    left: -77px;
+    border-radius: 100%;
+    border: 25px solid #ffffff;
+    z-index: 100;
+    pointer-events: none;
+}
+
+#colorWheel:after {
+    content: "";
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    left: -26px;
+    border-radius: 100%;
+    background: #ffffff;
+    z-index: 20;
+}

@@ -1,0 +1,231 @@
+
+    <!--
+    Home Slider
+    ==================================== -->
+
+    <div id="home-slider">
+        <div id="slider" class="sl-slider-wrapper">
+
+            <div class="sl-slider">
+
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25"
+                     data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+
+                    <div class="bg-img bg-img-1"></div>
+
+                    <div class="slide-caption">
+                        <div class="caption-content">
+                            <h2 class="animated fadeInDown">NEW PROJECT REPORTS </h2>
+                            <span class="animated fadeInDown">Design Assistant now offers comprehensive<br/>
+reports to make sharing details easier than ever.</span>
+                            <a href="#" class="btn btn-blue btn-effect">Learn More</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15"
+                     data-slice1-scale="1.5" data-slice2-scale="1.5">
+
+                    <div class="bg-img bg-img-2"></div>
+                    <div class="slide-caption">
+                        <div class="caption-content">
+                            <h2>FLASHFOOT2</h2>
+                            <span>Advanced water-sealing technology makes the<br/>
+Flush Mount System stronger than ever.
+</span>
+                            <a href="#" class="btn btn-blue btn-effect">Learn More</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3"
+                     data-slice1-scale="2" data-slice2-scale="1">
+
+                    <div class="bg-img bg-img-3"></div>
+                    <div class="slide-caption">
+                        <div class="caption-content">
+                            <h2>UFO | UNIVERSAL FASTENING OBJECT</h2>
+                            <span>It's not a clamp. It looks better, installs faster and makes everything simpler.</span>
+                            <a href="#" class="btn btn-blue btn-effect">Learn More</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- /sl-slider -->
+
+            <!--
+            <nav id="nav-arrows" class="nav-arrows">
+                <span class="nav-arrow-prev">Previous</span>
+                <span class="nav-arrow-next">Next</span>
+            </nav>
+            -->
+
+            <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+                <a href="javascript:;" class="sl-prev">
+                    <i class="fa fa-angle-left fa-3x"></i>
+                </a>
+                <a href="javascript:;" class="sl-next">
+                    <i class="fa fa-angle-right fa-3x"></i>
+                </a>
+            </nav>
+
+
+            <nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
+                <span class="nav-dot-current"></span>
+                <span></span>
+                <span></span>
+            </nav>
+
+        </div><!-- /slider-wrapper -->
+    </div>
+
+    <!--
+    End Home SliderEnd
+    ==================================== -->
+
+
+    <!-- Service section -->
+    <div id="intro" class="parallax">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+
+                    <div class="sec-title white text-center">
+                        <h2 class="wow animated bounceInLeft">Service</h2>
+                        <p class="wow animated bounceInRight">The Key Features of our Job</p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow animated zoomIn">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa fa-book fa-3x"></i>
+                            </div>
+                            <h3>Download</h3>
+                            <p>2017 PARTS CATALOG</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa fa-tasks fa-3x"></i>
+                            </div>
+                            <h3>DESIGN ASSISTANT</h3>
+                            <p>CONFIGURE YOUR PROJECT</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.6s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa fa-comments-o fa-3x"></i>
+                            </div>
+                            <h3>WEBINAR</h3>
+                            <p>VIEW SCHEDULED DATES</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.9s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fa fa-share-alt fa-3x"></i>
+                            </div>
+                            <h3>DISTRIBUTORS</h3>
+                            <p>FIND ONE NEAR YOU</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Service section -->
+
+    <script>
+
+        $(function() {
+
+            var Page = (function() {
+
+                var $navArrows = $( '#nav-arrows' ),
+                    $nav = $( '#nav-dots > span' ),
+                    slitslider = $( '#slider' ).slitslider( {
+                        onBeforeChange : function( slide, pos ) {
+
+                            $nav.removeClass( 'nav-dot-current' );
+                            $nav.eq( pos ).addClass( 'nav-dot-current' );
+
+                        }
+                    } ),
+
+                    init = function() {
+
+                        initEvents();
+
+                    },
+                    initEvents = function() {
+
+                        // add navigation events
+                        $navArrows.children( ':last' ).on( 'click', function() {
+
+                            slitslider.next();
+                            return false;
+
+                        } );
+
+                        $navArrows.children( ':first' ).on( 'click', function() {
+
+                            slitslider.previous();
+                            return false;
+
+                        } );
+
+                        $nav.each( function( i ) {
+
+                            $( this ).on( 'click', function( event ) {
+
+                                var $dot = $( this );
+
+                                if( !slitslider.isActive() ) {
+
+                                    $nav.removeClass( 'nav-dot-current' );
+                                    $dot.addClass( 'nav-dot-current' );
+
+                                }
+
+                                slitslider.jump( i + 1 );
+                                return false;
+
+                            } );
+
+                        } );
+
+                    };
+
+                return { init : init };
+
+            })();
+
+            Page.init();
+
+
+            /* ========================================================================= */
+            /*	Fix Slider Height
+            /* ========================================================================= */
+
+            // Slider Height
+            var slideHeight = $(window).height();
+
+            $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
+
+            $(window).resize(function(){'use strict',
+                $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
+            });
+
+
+        });
+
+    </script>
