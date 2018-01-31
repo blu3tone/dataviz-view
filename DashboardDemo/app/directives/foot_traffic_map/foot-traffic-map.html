@@ -1,0 +1,20 @@
+<div class="map-wrapper" ng-init="drawFrame()">
+    <div id="map"></div>
+    <div class="playback-modal">
+        <div class="date-time-display"><i class="fa fa-calendar" aria-hidden="true"></i><span>{{dateStr}}</span></div>
+        <div class="play-button"><i class="fa fa-play" aria-hidden="true" ng-show="!isPlay" ng-click="start()"></i>
+            <i class="fa fa-pause" aria-hidden="true" ng-show="isPlay" ng-click="start()"></i>
+        </div>
+        <!--<md-slider ng-model="timeNode" min="0" max="{{timeNodeMax}}" class="md-primary col-10 time-line-slider" ng-change="matchTimeNodeToDate()">-->
+        <!--</md-slider>-->
+        <!--<select class="delay-select" ng-model="delayTimeTmp" ng-change="setDelay()">-->
+            <!--<option ng-repeat="x in delayTimeOptions" value="{{x}}">{{x + ' s'}}</option>-->
+        <!--</select>-->
+    </div>
+    <!--<div class="dropdown">-->
+        <!--<a  class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" href="#">Select a date</a>-->
+        <!--<ul class="dropdown-menu" role="menu">-->
+            <!--<datetimepicker data-ng-model="date" data-datetimepicker-config="dateTimePickerConfig" data-on-set-time="matchDateToTimeNode()"/>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
