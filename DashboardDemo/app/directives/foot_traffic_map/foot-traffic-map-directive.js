@@ -174,6 +174,38 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
                         ]
                     },
                     {
+                        "featureType": "poi.attraction",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
                         "featureType": "poi.park",
                         "elementType": "geometry",
                         "stylers": [
@@ -188,6 +220,30 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
                         "stylers": [
                             {
                                 "color": "#9e9e9e"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
                             }
                         ]
                     },
@@ -285,7 +341,7 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
             var colorRange = ['#C3FF4D','#C9E74C','#D0D04B','#D7B94B','#DDA24A','#E48A4A','#EB7349','#F15C49','#F84548','#FF2E48'];
             // Read data
             var color = d3.scaleQuantile()
-                .domain([0, 2000])
+                .domain([0, 5000])
                 .range(colorRange);
 
             $scope.data = [];
@@ -306,6 +362,25 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
 
             //Create overlay
             var overlay = new google.maps.OverlayView();
+            var heatmap = new HeatmapOverlay(map,
+                {
+                    // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+                    "radius": 0.001,
+                    "maxOpacity": 0.5,
+                    // scales the radius based on map zoom
+                    "scaleRadius": true,
+                    // if set to false the heatmap uses the global maximum for colorization
+                    // if activated: uses the data maximum within the current map boundaries
+                    //   (there will always be a red spot with useLocalExtremas true)
+                    "useLocalExtrema": false,
+                    // which field name in your data represents the latitude - default "lat"
+                    latField: 'lat',
+                    // which field name in your data represents the longitude - default "lng"
+                    lngField: 'lon',
+                    // which field name in your data represents the data value - default "value"
+                    valueField: 'visitors'
+                }
+            );
             // Add the container when the overlay is added to the map.
             overlay.onAdd = function () {
                 $scope.layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
@@ -332,8 +407,8 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
                         .attr("cy", padding)
                         .attr("fill", d => color(d.value['visitors']))
                         .on("click", togglePopup)
-                        .on("mouseover", expandNode)
-                        .on("mouseout", narrowNode);
+                        // .on("mouseover", expandNode)
+                        // .on("mouseout", narrowNode);
 
                     function transform(d) {
                         d = new google.maps.LatLng(d.value['lat'], d.value['lon']);
@@ -457,6 +532,9 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
                 // Bind our overlay to the map…
                 overlay.setMap(null);
                 overlay.setMap(map);
+
+                // Bind heat map
+                heatmap.setData({max: 5000, data: $scope.markerToDrawList});
             }
             $scope.showMarker = function (index){
                 var marker = $scope.layer.selectAll("svg");
