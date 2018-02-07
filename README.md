@@ -119,7 +119,7 @@ After that, u can open url http://127.0.0.1:8080 to lunch application
 
 ## Authors
 
-* **Long Tran Vu** - *Initial work* - [PurpleBooth](https://github.com/Dr4g0nH3r0)
+* **Long Tran Vu** - *Initial work* - [Long Tran Vu](https://github.com/Dr4g0nH3r0)
 
 ## License
 
