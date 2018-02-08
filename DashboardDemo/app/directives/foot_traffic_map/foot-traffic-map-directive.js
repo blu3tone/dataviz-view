@@ -3,6 +3,7 @@
 angular.module('myApp.footTrafficMap', ['ngRoute'])
     .controller('FootTrafficMapController', ['$scope', '$timeout', '$filter', function($scope, $timeout, $filter) {
         $scope.i=0;
+        $scope.showHeatMap = true;
         $scope.minZoomLevel = 14;
         $scope.isPlay = false;
         $scope.delayTimeTmp = '1';
@@ -532,10 +533,27 @@ angular.module('myApp.footTrafficMap', ['ngRoute'])
                 // Bind our overlay to the map…
                 overlay.setMap(null);
                 overlay.setMap(map);
+                if($scope.showHeatMap){
+                    $scope.drawHeatmap();
+                }
+            }
 
+            $scope.drawHeatmap = function(){
                 // Bind heat map
                 heatmap.setData({max: 5000, data: $scope.markerToDrawList});
             }
+
+            $scope.removeHeatMap = function(){
+                heatmap.setData({max: 5000, data: []});
+            }
+            $scope.$watch('showHeatMap', function(newVal) {
+                if(newVal == true){
+                    $scope.drawHeatmap();
+                }
+                else{
+                    $scope.removeHeatMap();
+                }
+            })
             $scope.showMarker = function (index){
                 var marker = $scope.layer.selectAll("svg");
                 marker.attr("class", "marker hidden");

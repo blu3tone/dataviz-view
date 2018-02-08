@@ -1,7 +1,11 @@
 <div class="map-wrapper" ng-init="drawFrame()">
     <div id="map"></div>
+    <div class="map-layers-switch-box">
+        <i class="fa fa-map fa-4x" aria-hidden="true" ng-style="showHeatMap ? {opacity: 1} : {opacity: 0.5}" ng-click="showHeatMap = !showHeatMap"></i>
+        <!--<i class="fa fa-map-o fa-4x" aria-hidden="true" ng-show="!showHeatMap" ng-click="showHeatMap = !showHeatMap"></i>-->
+    </div>
     <div class="playback-modal">
-        <div class="date-time-display"><i class="fa fa-calendar" aria-hidden="true"></i><span>{{dateStr}}</span></div>
+        <div class="date-time-display"><i class="fa fa-calendar" aria-hidden="true"></i><span class="date-time-label">{{dateStr}}</span></div>
         <div class="play-button"><i class="fa fa-play" aria-hidden="true" ng-show="!isPlay" ng-click="start()"></i>
             <i class="fa fa-pause" aria-hidden="true" ng-show="isPlay" ng-click="start()"></i>
         </div>
